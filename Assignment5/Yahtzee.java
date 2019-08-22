@@ -92,7 +92,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 	private void playGame() throws IOException {
 		/* You fill this in */
 		// N_SCORING_CATEGORIES轮游戏
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < N_SCORING_CATEGORIES; i++) {
 			// nPlayers个玩家
 			for (int j = 0; j < nPlayers; j++) {
 				display.printMessage(playerNames[j] + "'s turn! Click \"Roll Dice\" button to roll the dice.");
@@ -199,20 +199,10 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		int scores = 0;
 		switch (category) {
 		case ONES:
-			scores = onesToSixesScore(dice, category);
-			break;
 		case TWOS:
-			scores = onesToSixesScore(dice, category);
-			break;
 		case THREES:
-			scores = onesToSixesScore(dice, category);
-			break;
 		case FOURS:
-			scores = onesToSixesScore(dice, category);
-			break;
 		case FIVES:
-			scores = onesToSixesScore(dice, category);
-			break;
 		case SIXES:
 			scores = onesToSixesScore(dice, category);
 			break;
@@ -223,8 +213,6 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			scores = upperBonusScore(playerScores, player);
 			break;
 		case THREE_OF_A_KIND:
-			scores = threeOrFourOfAKindScore(dice);
-			break;
 		case FOUR_OF_A_KIND:
 			scores = threeOrFourOfAKindScore(dice);
 			break;
@@ -325,21 +313,12 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		boolean state = false;
 		switch (category) {
 		case ONES:
-			state = true;
-			break;
 		case TWOS:
-			state = true;
-			break;
 		case THREES:
-			state = true;
-			break;
 		case FOURS:
-			state = true;
-			break;
 		case FIVES:
-			state = true;
-			break;
 		case SIXES:
+		case CHANCE:
 			state = true;
 			break;
 		case THREE_OF_A_KIND:
@@ -359,9 +338,6 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			break;
 		case YAHTZEE:
 			state = checkThreeOrFourOfAKindAndYahtzee(dice, 5);
-			break;
-		case CHANCE:
-			state = true;
 			break;
 		}
 		return state;

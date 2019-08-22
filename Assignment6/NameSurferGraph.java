@@ -20,6 +20,7 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 
 	// 颜色数组
 	private Color[] color = new Color[] { Color.BLACK, Color.RED, Color.BLUE, Color.ORANGE };
+	// 存放每个NameSurferEntry对象的数组表
 	private ArrayList<NameSurferEntry> Entry = new ArrayList<NameSurferEntry>();
 
 	/**
